@@ -1,0 +1,29 @@
+model:
+  name: "microsoft/speecht5_tts"
+  vocoder: "microsoft/speecht5_hifigan"
+  speaker_embeddings_dataset: "Matthijs/cmu-arctic-xvectors"
+  speaker_embeddings_split: "validation"
+  speaker_embeddings_index: 7306
+
+audio:
+  sample_rate: 16000
+  output_format: "wav"
+  channels: 1
+
+inference:
+  device: "auto"
+  batch_size: 1
+  seed: 42
+
+evaluation:
+  save_spectrograms: true
+  calculate_latency: true
+  calculate_rtf: true
+  asr_model: "openai/whisper-base"
+  enable_asr: false
+
+paths:
+  output_audio: "outputs/audio"
+  output_spectrograms: "outputs/spectrograms"
+  reports: "outputs/reports"
+  input_data: "data/input"

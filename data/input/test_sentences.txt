@@ -1,0 +1,28 @@
+# TTS Baseline — test corpus
+# ~25 customer-support / voice-agent sentences
+
+Hello, how can I help you today?
+Thank you for calling. My name is Maya, and I am happy to assist you.
+Your order has been shipped and will arrive by tomorrow evening.
+Your verification code is 492817. Please do not share this with anyone.
+Your appointment is scheduled for September third at two thirty in the afternoon.
+Your current balance is two thousand five hundred rupees.
+Would you like me to connect you with a customer support representative?
+We apologize for the delay and appreciate your patience while we process your request.
+Great! Your order is confirmed. Thank you for shopping with us.
+I can see your account was created on March fifteenth, two thousand and twenty-two.
+Your refund of three hundred and fifty rupees has been processed and will reflect within three to five business days.
+Please hold for a moment while I retrieve your account details.
+Your subscription plan will renew on the first of next month.
+I am sorry to hear that. Let me escalate this to our specialist team.
+Can you please confirm the last four digits of your registered mobile number?
+Your ticket number is 7 8 4 5 2. Please keep it for future reference.
+We have received your complaint and will respond within twenty-four hours.
+The nearest service center is located at 42 Anna Salai, Chennai.
+Your EMI of one thousand two hundred rupees is due on the fifteenth of this month.
+To reset your password, please click the link we have sent to your registered email address.
+I can see that your delivery was attempted on Monday, October ninth, but no one was available at the address.
+Would you prefer a callback or would you like to continue on this call?
+Your warranty expires on December thirty-first, two thousand and twenty-five.
+All our agents are currently busy. Your estimated wait time is approximately four minutes.
+Is there anything else I can help you with today?
