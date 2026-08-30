@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bot, Settings, Activity, Volume2, VolumeX, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Bot, Activity, Volume2, VolumeX, CheckCircle2, AlertCircle } from 'lucide-react';
 import { AudioVisualizer } from './AudioVisualizer';
 import type { VoiceResponse } from '../types';
 
@@ -8,7 +8,6 @@ interface HeaderProps {
   isSynthesizing: boolean;
   autoPlayVoice: boolean;
   onToggleAutoPlay: (enabled: boolean) => void;
-  onOpenSettings: () => void;
   onOpenMetrics: () => void;
   voiceInfo: VoiceResponse | null;
   isConnected: boolean;
@@ -19,7 +18,6 @@ export const Header: React.FC<HeaderProps> = ({
   isSynthesizing,
   autoPlayVoice,
   onToggleAutoPlay,
-  onOpenSettings,
   onOpenMetrics,
   voiceInfo,
   isConnected,
@@ -34,10 +32,10 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
           <div className="logo-text-group">
             <div className="logo-title-row">
-              <h1 className="logo-title">SpeechT5 Voice AI</h1>
-              <span className="badge-pill">Baseline v1.1</span>
+              <h1 className="logo-title">Chloe</h1>
+              <span className="badge-pill">Voice AI</span>
             </div>
-            <p className="logo-subtitle">Neural Text-to-Speech & Conversational LLM</p>
+            <p className="logo-subtitle">Neural SpeechT5 & Conversational LLM</p>
           </div>
         </div>
       </div>
@@ -48,11 +46,11 @@ export const Header: React.FC<HeaderProps> = ({
           <AudioVisualizer isPlaying={isPlayingVoice} isSynthesizing={isSynthesizing} />
           <div className="visualizer-status-text">
             {isPlayingVoice ? (
-              <span className="status-speaking">Speaking now...</span>
+              <span className="status-speaking">Chloe is speaking...</span>
             ) : isSynthesizing ? (
-              <span className="status-synthesizing">Synthesizing audio...</span>
+              <span className="status-synthesizing">Chloe is thinking & voicing...</span>
             ) : (
-              <span className="status-ready">Assistant Ready</span>
+              <span className="status-ready">Chloe is listening</span>
             )}
           </div>
         </div>
@@ -61,7 +59,7 @@ export const Header: React.FC<HeaderProps> = ({
       {/* Header Right Controls */}
       <div className="header-right">
         {/* Device & Status Badge */}
-        <div className="model-status-pill" title="Hardware backend & model">
+        <div className="model-status-pill" title="Hardware backend & neural engine">
           {isConnected ? (
             <CheckCircle2 size={13} color="#10b981" />
           ) : (
@@ -76,7 +74,7 @@ export const Header: React.FC<HeaderProps> = ({
         <button
           onClick={() => onToggleAutoPlay(!autoPlayVoice)}
           className={`header-icon-btn ${autoPlayVoice ? 'auto-play-active' : ''}`}
-          title={autoPlayVoice ? 'Auto-play Voice: ON' : 'Auto-play Voice: OFF'}
+          title={autoPlayVoice ? 'Voice Auto-play: ON' : 'Voice Auto-play: OFF'}
         >
           {autoPlayVoice ? <Volume2 size={18} /> : <VolumeX size={18} />}
         </button>
@@ -88,15 +86,6 @@ export const Header: React.FC<HeaderProps> = ({
           title="System Statistics & Latency"
         >
           <Activity size={18} />
-        </button>
-
-        {/* Settings Button */}
-        <button
-          onClick={onOpenSettings}
-          className="header-icon-btn settings-btn"
-          title="LLM & Assistant Settings"
-        >
-          <Settings size={18} />
         </button>
       </div>
     </header>

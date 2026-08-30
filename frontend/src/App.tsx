@@ -4,7 +4,6 @@ import { Header } from './components/Header';
 import { ChatMessageBubble } from './components/ChatMessageBubble';
 import { ChatInput } from './components/ChatInput';
 import { PromptSuggestions } from './components/PromptSuggestions';
-import { SettingsModal } from './components/SettingsModal';
 import { MetricsDrawer } from './components/MetricsDrawer';
 import type { ChatMessage, LLMConfig, VoiceResponse } from './types';
 import { sendChatMessage, fetchVoices, checkHealth } from './api';
@@ -16,7 +15,7 @@ const DEFAULT_CONFIG: LLMConfig = {
   modelName: 'qwen/qwen3.8-27b',
   baseUrl: 'https://api.groq.com/openai/v1',
   systemPrompt:
-    'You are a courteous, intelligent voice AI assistant. Keep responses concise, natural, and easy to understand when spoken.',
+    'You are Chloe, an intelligent, charming, and friendly voice AI assistant. Keep responses natural, conversational, concise, and easy to understand when spoken.',
 };
 
 export const App: React.FC = () => {
@@ -25,7 +24,7 @@ export const App: React.FC = () => {
     return saved ? JSON.parse(saved) : [];
   });
 
-  const [config, setConfig] = useState<LLMConfig>(() => {
+  const [config] = useState<LLMConfig>(() => {
     const saved = localStorage.getItem('voiceai_llm_config');
     return saved ? JSON.parse(saved) : DEFAULT_CONFIG;
   });
@@ -38,7 +37,6 @@ export const App: React.FC = () => {
   const [synthesizeVoice, setSynthesizeVoice] = useState(true);
   const [autoPlayVoice, setAutoPlayVoice] = useState(true);
 
-  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isMetricsOpen, setIsMetricsOpen] = useState(false);
 
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
@@ -66,12 +64,6 @@ export const App: React.FC = () => {
     localStorage.setItem('voiceai_chat_history', JSON.stringify(messages));
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
-
-  // Save config
-  const handleSaveConfig = (newConfig: LLMConfig) => {
-    setConfig(newConfig);
-    localStorage.setItem('voiceai_llm_config', JSON.stringify(newConfig));
-  };
 
   const handleSendMessage = async (text: string) => {
     if (!text.trim() || isLoading) return;
@@ -123,7 +115,7 @@ export const App: React.FC = () => {
           msg.id === tempBotMessageId
             ? {
                 ...msg,
-                content: `Sorry, an error occurred: ${err.message || 'Could not reach server'}. Please ensure FastAPI backend is running on http://localhost:8000.`,
+                content: `Sorry, an error occurred: ${err.message || 'Could not reach server'}. Please check backend status.`,
                 isSynthesizing: false,
               }
             : msg
@@ -150,7 +142,6 @@ export const App: React.FC = () => {
         isSynthesizing={isSynthesizing}
         autoPlayVoice={autoPlayVoice}
         onToggleAutoPlay={setAutoPlayVoice}
-        onOpenSettings={() => setIsSettingsOpen(true)}
         onOpenMetrics={() => setIsMetricsOpen(true)}
         voiceInfo={voiceInfo}
         isConnected={isConnected}
@@ -164,9 +155,9 @@ export const App: React.FC = () => {
               <div className="welcome-avatar-glow">
                 <Bot size={36} />
               </div>
-              <h2 className="welcome-title">How can I assist you today?</h2>
+              <h2 className="welcome-title">Hi, I'm Chloe!</h2>
               <p className="welcome-subtitle">
-                Ask any question below. Responses are generated with intelligent AI and synthesized in real-time using our neural SpeechT5 voice model.
+                Ask me anything. I will think, generate answers using our intelligent LLM, and speak back to you in real-time with neural voice synthesis.
               </p>
 
               <PromptSuggestions onSelectPrompt={handleSendMessage} />
@@ -194,14 +185,6 @@ export const App: React.FC = () => {
           hasMessages={messages.length > 0}
         />
       </main>
-
-      {/* Settings Modal */}
-      <SettingsModal
-        isOpen={isSettingsOpen}
-        onClose={() => setIsSettingsOpen(false)}
-        config={config}
-        onSaveConfig={handleSaveConfig}
-      />
 
       {/* System Metrics Drawer */}
       <MetricsDrawer

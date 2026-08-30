@@ -306,13 +306,13 @@ async def list_voices():
     """List speaker presets and system info."""
     return {
         "current_voice": {
-            "name": "Maya (Default Support Voice)",
+            "name": "Chloe (Default Voice)",
             "dataset": "Matthijs/cmu-arctic-xvectors",
             "index": 7306,
             "speaker_id": "cmu_us_slt_arctic",
         },
         "voices": [
-            {"id": "maya", "name": "Maya (Customer Support)", "index": 7306, "gender": "Female"},
+            {"id": "chloe", "name": "Chloe (Default Voice)", "index": 7306, "gender": "Female"},
             {"id": "alex", "name": "Alex (Friendly Assistant)", "index": 0, "gender": "Male"},
             {"id": "clara", "name": "Clara (Professional)", "index": 1200, "gender": "Female"},
             {"id": "david", "name": "David (Narrator)", "index": 3500, "gender": "Male"},

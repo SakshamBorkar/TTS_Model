@@ -31,7 +31,7 @@ export const ChatMessageBubble: React.FC<ChatMessageBubbleProps> = ({
 
       <div className="message-content-container">
         <div className="message-header-meta">
-          <span className="sender-name">{isAssistant ? 'Voice AI (SpeechT5)' : 'You'}</span>
+          <span className="sender-name">{isAssistant ? 'Chloe' : 'You'}</span>
           <span className="message-time">{message.timestamp}</span>
         </div>
 
@@ -57,7 +57,7 @@ export const ChatMessageBubble: React.FC<ChatMessageBubbleProps> = ({
                 <span></span>
                 <span></span>
               </div>
-              <span className="synthesizing-text">Synthesizing neural voice...</span>
+              <span className="synthesizing-text">Chloe is generating voice...</span>
             </div>
           )}
         </div>

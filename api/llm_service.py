@@ -40,7 +40,7 @@ if _env_path.exists():
 OFFLINE_RESPONSES = [
     (
         r"(?i)\b(hi|hello|hey|greetings|good\s*(morning|afternoon|evening))\b",
-        "Hello! I am your AI Voice Assistant powered by SpeechT5. How can I help you today?",
+        "Hello! I am Chloe, your AI Voice Assistant. How can I help you today?",
     ),
     (
         r"(?i)\b(order|delivery|shipping|package|track)\b",
@@ -63,8 +63,8 @@ OFFLINE_RESPONSES = [
         "To reset your password, please click the secure link we have sent to your registered email address.",
     ),
     (
-        r"(?i)\b(who\s*are\s*you|what\s*are\s*you|introduce\s*yourself|what\s*is\s*this)\b",
-        "I am an intelligent conversational voice chatbot running a SpeechT5 acoustic model and HiFi-GAN neural vocoder for high-fidelity speech synthesis.",
+        r"(?i)\b(who\s*are\s*you|what\s*is\s*your\s*name|what\s*are\s*you|introduce\s*yourself|what\s*is\s*this)\b",
+        "I am Chloe, an intelligent conversational voice AI assistant running a SpeechT5 acoustic model and HiFi-GAN neural vocoder for high-fidelity speech synthesis.",
     ),
     (
         r"(?i)\b(speecht5|hifigan|tts|text\s*to\s*speech|architecture|model)\b",
@@ -72,7 +72,7 @@ OFFLINE_RESPONSES = [
     ),
     (
         r"(?i)\b(support|help|agent|human|representative|contact)\b",
-        "I would be glad to assist you or connect you with a customer support representative. What issue are you experiencing?",
+        "I am Chloe, and I would be glad to assist you. What can I help you with today?",
     ),
     (
         r"(?i)\b(thank|thanks|great|awesome|good\s*job)\b",
@@ -124,9 +124,9 @@ class LLMService:
         t0 = time.perf_counter()
 
         system_msg = system_prompt or (
-            "You are a helpful, courteous AI voice assistant. "
-            "Keep your responses concise, conversational, friendly, and easy to speak out loud. "
-            "Avoid complex markdown tables, raw URLs, or long bulleted lists."
+            "You are Chloe, an intelligent, charming, and friendly voice AI assistant. "
+            "Keep your responses conversational, concise, natural, and easy to speak out loud. "
+            "Avoid complex markdown tables, raw URLs, code, or long bulleted lists."
         )
 
         effective_provider = provider
@@ -185,7 +185,8 @@ class LLMService:
 
         if provider == "groq":
             effective_base_url = effective_base_url or "https://api.groq.com/openai/v1"
-            effective_model = effective_model or os.environ.get("GROQ_MODEL", "qwen/qwen3.8-27b")
+            if not effective_model or "llama" in effective_model.lower():
+                effective_model = os.environ.get("GROQ_MODEL", "qwen/qwen3.8-27b")
         elif provider == "ollama":
             effective_base_url = effective_base_url or "http://localhost:11434/v1"
             effective_model = effective_model or "llama3.2"
@@ -206,12 +207,29 @@ class LLMService:
 
         messages.append({"role": "user", "content": message})
 
-        response = client.chat.completions.create(
-            model=effective_model,
-            messages=messages,
-            max_tokens=250,
-            temperature=0.7,
-        )
+        try:
+            response = client.chat.completions.create(
+                model=effective_model,
+                messages=messages,
+                max_tokens=250,
+                temperature=0.7,
+            )
+        except Exception as exc:
+            if provider == "groq" and effective_model != "qwen/qwen3.8-27b":
+                logger.warning(
+                    "Groq model %s error (%s). Auto-retrying with qwen/qwen3.8-27b...",
+                    effective_model,
+                    exc,
+                )
+                response = client.chat.completions.create(
+                    model="qwen/qwen3.8-27b",
+                    messages=messages,
+                    max_tokens=250,
+                    temperature=0.7,
+                )
+            else:
+                raise exc
+
         content = response.choices[0].message.content or ""
         return content.strip()
 
