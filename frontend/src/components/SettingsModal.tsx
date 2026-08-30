@@ -31,7 +31,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
     if (provider === 'openai') {
       defaultModel = 'gpt-4o-mini';
     } else if (provider === 'groq') {
-      defaultModel = 'llama-3.3-70b-versatile';
+      defaultModel = 'qwen/qwen3.8-27b';
       defaultUrl = 'https://api.groq.com/openai/v1';
     } else if (provider === 'ollama') {
       defaultModel = 'llama3.2';

@@ -10,9 +10,27 @@ import logging
 import os
 import re
 import time
+from pathlib import Path
 from typing import Optional
 
 logger = logging.getLogger(__name__)
+
+# Auto-load .env from project root if present
+_env_path = Path(__file__).resolve().parent.parent / ".env"
+if _env_path.exists():
+    try:
+        from dotenv import load_dotenv
+        load_dotenv(_env_path)
+    except ImportError:
+        try:
+            with open(_env_path, "r", encoding="utf-8") as _f:
+                for _line in _f:
+                    _line = _line.strip()
+                    if _line and not _line.startswith("#") and "=" in _line:
+                        _k, _v = _line.split("=", 1)
+                        os.environ.setdefault(_k.strip(), _v.strip())
+        except Exception:
+            pass
 
 
 # ---------------------------------------------------------------------------
@@ -111,14 +129,25 @@ class LLMService:
             "Avoid complex markdown tables, raw URLs, or long bulleted lists."
         )
 
-        effective_key = api_key or os.environ.get("OPENAI_API_KEY") or os.environ.get("GROQ_API_KEY")
+        effective_provider = provider
+        if effective_provider == "offline" and os.environ.get("DEFAULT_LLM_PROVIDER") == "groq" and os.environ.get("GROQ_API_KEY"):
+            effective_provider = "groq"
 
-        if provider in ("openai", "groq", "ollama", "custom") and (effective_key or provider in ("ollama", "custom")):
+        effective_key = api_key
+        if not effective_key:
+            if effective_provider == "groq":
+                effective_key = os.environ.get("GROQ_API_KEY")
+            elif effective_provider == "openai":
+                effective_key = os.environ.get("OPENAI_API_KEY")
+            else:
+                effective_key = os.environ.get("GROQ_API_KEY") or os.environ.get("OPENAI_API_KEY")
+
+        if effective_provider in ("openai", "groq", "ollama", "custom") and (effective_key or effective_provider in ("ollama", "custom")):
             try:
                 reply = self._query_openai_compatible(
                     message=message,
                     history=history or [],
-                    provider=provider,
+                    provider=effective_provider,
                     api_key=effective_key or "ollama",
                     model_name=model_name,
                     base_url=base_url,
@@ -129,7 +158,7 @@ class LLMService:
             except Exception as exc:
                 logger.warning(
                     "LLM provider %s failed (%s). Falling back to offline assistant.",
-                    provider,
+                    effective_provider,
                     exc,
                 )
 
@@ -156,7 +185,7 @@ class LLMService:
 
         if provider == "groq":
             effective_base_url = effective_base_url or "https://api.groq.com/openai/v1"
-            effective_model = effective_model or "llama-3.3-70b-versatile"
+            effective_model = effective_model or os.environ.get("GROQ_MODEL", "qwen/qwen3.8-27b")
         elif provider == "ollama":
             effective_base_url = effective_base_url or "http://localhost:11434/v1"
             effective_model = effective_model or "llama3.2"

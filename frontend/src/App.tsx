@@ -11,12 +11,12 @@ import { sendChatMessage, fetchVoices, checkHealth } from './api';
 import { Bot } from 'lucide-react';
 
 const DEFAULT_CONFIG: LLMConfig = {
-  provider: 'offline',
+  provider: 'groq',
   apiKey: '',
-  modelName: '',
-  baseUrl: '',
+  modelName: 'qwen/qwen3.8-27b',
+  baseUrl: 'https://api.groq.com/openai/v1',
   systemPrompt:
-    'You are a courteous, helpful voice customer support AI assistant. Keep responses clear, concise, and easy to understand when spoken.',
+    'You are a courteous, intelligent voice AI assistant. Keep responses concise, natural, and easy to understand when spoken.',
 };
 
 export const App: React.FC = () => {
