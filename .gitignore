@@ -23,9 +23,22 @@ htmlcov/
 *.ipynb
 
 # Output files — generated at runtime
-outputs/audio/*.wav
-outputs/spectrograms/*.png
+outputs/audio/
+outputs/spectrograms/
 outputs/reports/*.csv
+outputs/reports/*.png
+
+# Checkpoints and large model binary weights (> 100MB)
+checkpoints/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.onnx
+
+# Raw audio dataset files
+data/raw/
+data/splits/*.wav
 
 # Hugging Face model cache (can be large)
 .cache/

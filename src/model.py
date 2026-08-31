@@ -64,8 +64,9 @@ class TTSModel:
         Project :class:`~src.config.Config` instance.
     """
 
-    def __init__(self, config: Config) -> None:
+    def __init__(self, config: Config, checkpoint_path: Optional[str] = None) -> None:
         self._config = config
+        self._checkpoint_path = checkpoint_path
         self._device: Optional[torch.device] = None
         self._processor: Optional[SpeechT5Processor] = None
         self._acoustic_model: Optional[SpeechT5ForTextToSpeech] = None
@@ -99,11 +100,16 @@ class TTSModel:
                 "CUDA was explicitly requested but is not available on this system."
             )
 
-        model_name: str = self._config.model.name
-        vocoder_name: str = self._config.model.vocoder
+        default_model = self._config.model.get("name", self._config.model.get("base_model", "microsoft/speecht5_tts"))
+        model_name: str = self._checkpoint_path or default_model
+        vocoder_name: str = self._config.model.get("vocoder", "microsoft/speecht5_hifigan")
 
         logger.info("Loading processor from %s …", model_name)
-        self._processor = SpeechT5Processor.from_pretrained(model_name)
+        try:
+            self._processor = SpeechT5Processor.from_pretrained(model_name)
+        except Exception:
+            # Fallback to base model processor if checkpoint only saved model weights
+            self._processor = SpeechT5Processor.from_pretrained(default_model)
 
         logger.info("Loading acoustic model from %s …", model_name)
         self._acoustic_model = (

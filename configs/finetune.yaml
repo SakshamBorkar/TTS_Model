@@ -1,0 +1,67 @@
+# ==============================================================================
+# TTS Stage 2 — Fine-Tuning & Domain Adaptation Configuration
+# ==============================================================================
+
+model:
+  base_model: "microsoft/speecht5_tts"
+  vocoder: "microsoft/speecht5_hifigan"
+  speaker_embeddings_dataset: "Matthijs/cmu-arctic-xvectors"
+  speaker_embeddings_split: "validation"
+  speaker_embeddings_index: 7306   # Consistent single-speaker vector for LJ Speech
+
+audio:
+  sample_rate: 16000
+  output_format: "wav"
+  channels: 1
+
+inference:
+  device: "auto"
+  batch_size: 1
+  seed: 42
+
+data:
+  dataset_name: "lj_speech"
+  raw_dir: "data/raw"
+  splits_dir: "data/splits"
+  train_ratio: 0.80
+  val_ratio: 0.10
+  test_ratio: 0.10
+  seed: 42
+  sample_rate: 16000
+  channels: 1
+  min_audio_length_seconds: 0.5
+  max_audio_length_seconds: 10.0
+
+training:
+  output_dir: "checkpoints/finetuned"
+  best_checkpoint_dir: "checkpoints/finetuned/best"
+  experiments_dir: "experiments/finetuning"
+  reports_dir: "outputs/reports"
+  epochs: 10
+  batch_size: 4
+  gradient_accumulation_steps: 4  # Effective batch size = 16
+  learning_rate: 1.0e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  fp16: true
+  seed: 42
+  eval_steps: 50
+  save_steps: 50
+  early_stopping_patience: 3
+  metric_for_best_model: "eval_loss"
+
+evaluation:
+  enable_asr: false
+  asr_model: "openai/whisper-base"
+  compute_wer: true
+  compute_cer: true
+  output_audio_dir: "outputs/audio"
+  reports_dir: "outputs/reports"
+
+paths:
+  checkpoints: "checkpoints/finetuned"
+  best_checkpoint: "checkpoints/finetuned/best"
+  baseline_checkpoint: "checkpoints/baseline"
+  reports: "outputs/reports"
+  logs: "outputs/logs"
+  splits: "data/splits"

@@ -1,0 +1,50 @@
+[
+  {
+    "sample_id": "1272-141231-0003",
+    "raw_text": "HIS INSTANT OF PANIC WAS FOLLOWED BY A SMALL SHARP BLOW HIGH ON HIS CHEST",
+    "normalized_text": "HIS INSTANT OF PANIC WAS FOLLOWED BY A SMALL SHARP BLOW HIGH ON HIS CHEST",
+    "duration": 5.42,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0003.wav"
+  },
+  {
+    "sample_id": "1272-141231-0024",
+    "raw_text": "THIS IS PHYSICALLY IMPOSSIBLE WHEN CONSCIOUS",
+    "normalized_text": "THIS IS PHYSICALLY IMPOSSIBLE WHEN CONSCIOUS",
+    "duration": 3.64,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0024.wav"
+  },
+  {
+    "sample_id": "1272-141231-0013",
+    "raw_text": "THE TWENTIES",
+    "normalized_text": "THE TWENTIES",
+    "duration": 1.6399375,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0013.wav"
+  },
+  {
+    "sample_id": "1272-128104-0008",
+    "raw_text": "AS FOR ETCHINGS THEY ARE OF TWO KINDS BRITISH AND FOREIGN",
+    "normalized_text": "AS FOR ETCHINGS THEY ARE OF TWO KINDS BRITISH AND FOREIGN",
+    "duration": 5.12,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-128104-0008.wav"
+  },
+  {
+    "sample_id": "1272-141231-0029",
+    "raw_text": "HE THOUGHT IT WAS A LAST BURST OF ENERGY HE KNEW HOW CLOSE THEY BOTH WERE TO EXHAUSTION",
+    "normalized_text": "HE THOUGHT IT WAS A LAST BURST OF ENERGY HE KNEW HOW CLOSE THEY BOTH WERE TO EXHAUSTION",
+    "duration": 6.88,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0029.wav"
+  },
+  {
+    "sample_id": "1272-128104-0012",
+    "raw_text": "ONLY UNFORTUNATELY HIS OWN WORK NEVER DOES GET GOOD",
+    "normalized_text": "ONLY UNFORTUNATELY HIS OWN WORK NEVER DOES GET GOOD",
+    "duration": 5.38,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-128104-0012.wav"
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "sample_id": "1272-135031-0006",
+    "raw_text": "I ALSO OFFERED TO HELP YOUR BROTHER TO ESCAPE BUT HE WOULD NOT GO",
+    "normalized_text": "I ALSO OFFERED TO HELP YOUR BROTHER TO ESCAPE BUT HE WOULD NOT GO",
+    "duration": 4.09,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-135031-0006.wav"
+  },
+  {
+    "sample_id": "1272-135031-0007",
+    "raw_text": "HE EATS AND SLEEPS VERY STEADILY REPLIED THE NEW KING",
+    "normalized_text": "HE EATS AND SLEEPS VERY STEADILY REPLIED THE NEW KING",
+    "duration": 4.055,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-135031-0007.wav"
+  },
+  {
+    "sample_id": "1272-135031-0009",
+    "raw_text": "HE DOESN'T WORK AT ALL",
+    "normalized_text": "HE DOESN'T WORK AT ALL",
+    "duration": 1.91,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-135031-0009.wav"
+  },
+  {
+    "sample_id": "1272-141231-0017",
+    "raw_text": "HE ASKED THE HANDLER WHO WAS KNEADING HIS ACHING MUSCLES",
+    "normalized_text": "HE ASKED THE HANDLER WHO WAS KNEADING HIS ACHING MUSCLES",
+    "duration": 3.735,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0017.wav"
+  },
+  {
+    "sample_id": "1272-128104-0001",
+    "raw_text": "NOR IS MISTER QUILTER'S MANNER LESS INTERESTING THAN HIS MATTER",
+    "normalized_text": "NOR IS MISTER QUILTER'S MANNER LESS INTERESTING THAN HIS MATTER",
+    "duration": 4.815,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-128104-0001.wav"
+  },
+  {
+    "sample_id": "1272-128104-0010",
+    "raw_text": "NEAR THE FIRE AND THE ORNAMENTS FRED BROUGHT HOME FROM INDIA ON THE MANTEL BOARD",
+    "normalized_text": "NEAR THE FIRE AND THE ORNAMENTS FRED BROUGHT HOME FROM INDIA ON THE MANTEL BOARD",
+    "duration": 5.6,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-128104-0010.wav"
+  },
+  {
+    "sample_id": "1272-141231-0009",
+    "raw_text": "THE CONTESTANTS IN THE TWENTIES NEEDED UNDISTURBED REST THEREFORE NIGHTS IN THE DORMITORIES WERE AS QUIET AS DEATH",
+    "normalized_text": "THE CONTESTANTS IN THE TWENTIES NEEDED UNDISTURBED REST THEREFORE NIGHTS IN THE DORMITORIES WERE AS QUIET AS DEATH",
+    "duration": 8.62,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0009.wav"
+  }
+]

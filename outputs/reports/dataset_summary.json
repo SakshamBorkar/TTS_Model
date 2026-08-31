@@ -1,0 +1,18 @@
+{
+  "sample_count": 63,
+  "total_duration_hours": 0.09269163194444444,
+  "total_duration_seconds": 333.689875,
+  "avg_duration_seconds": 5.296664682539682,
+  "median_duration_seconds": 5.015,
+  "min_duration_seconds": 1.6399375,
+  "max_duration_seconds": 9.9,
+  "avg_transcript_length": 67.58730158730158,
+  "median_transcript_length": 65.0,
+  "min_transcript_length": 11,
+  "max_transcript_length": 142,
+  "valid_samples": 63,
+  "rejected_samples": 10,
+  "train_samples": 50,
+  "val_samples": 6,
+  "test_samples": 7
+}

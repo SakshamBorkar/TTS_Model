@@ -1,0 +1,402 @@
+[
+  {
+    "sample_id": "1272-141231-0005",
+    "raw_text": "A MINUTE IS NOT A VERY LARGE MEASURE OF TIME AND HIS BODY NEEDED EVERY FRACTION OF IT",
+    "normalized_text": "A MINUTE IS NOT A VERY LARGE MEASURE OF TIME AND HIS BODY NEEDED EVERY FRACTION OF IT",
+    "duration": 5.81,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0005.wav"
+  },
+  {
+    "sample_id": "1272-135031-0013",
+    "raw_text": "INQUIRED SHAGGY IN THE METAL FOREST",
+    "normalized_text": "INQUIRED SHAGGY IN THE METAL FOREST",
+    "duration": 3.7,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-135031-0013.wav"
+  },
+  {
+    "sample_id": "1272-141231-0011",
+    "raw_text": "THE OTHER VOICE SNAPPED WITH A HARSH URGENCY CLEARLY USED TO COMMAND",
+    "normalized_text": "THE OTHER VOICE SNAPPED WITH A HARSH URGENCY CLEARLY USED TO COMMAND",
+    "duration": 5.015,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0011.wav"
+  },
+  {
+    "sample_id": "1272-141231-0001",
+    "raw_text": "SWEAT COVERED BRION'S BODY TRICKLING INTO THE TIGHT LOINCLOTH THAT WAS THE ONLY GARMENT HE WORE",
+    "normalized_text": "SWEAT COVERED BRION'S BODY TRICKLING INTO THE TIGHT LOINCLOTH THAT WAS THE ONLY GARMENT HE WORE",
+    "duration": 6.535,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0001.wav"
+  },
+  {
+    "sample_id": "1272-135031-0011",
+    "raw_text": "NOT EXACTLY RETURNED KALIKO",
+    "normalized_text": "NOT EXACTLY RETURNED KALIKO",
+    "duration": 3.18,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-135031-0011.wav"
+  },
+  {
+    "sample_id": "1272-141231-0032",
+    "raw_text": "THEN THE POWERFUL TWIST THAT THRUST IT ASIDE IN AND UNDER THE GUARD",
+    "normalized_text": "THEN THE POWERFUL TWIST THAT THRUST IT ASIDE IN AND UNDER THE GUARD",
+    "duration": 4.48,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0032.wav"
+  },
+  {
+    "sample_id": "1272-141231-0027",
+    "raw_text": "WHEN THE BUZZER SOUNDED HE PULLED HIS FOIL FROM HIS SECOND'S STARTLED GRASP AND RAN FORWARD",
+    "normalized_text": "WHEN THE BUZZER SOUNDED HE PULLED HIS FOIL FROM HIS SECOND'S STARTLED GRASP AND RAN FORWARD",
+    "duration": 6.57,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0027.wav"
+  },
+  {
+    "sample_id": "1272-141231-0021",
+    "raw_text": "EVERY MAN WHO ENTERED THE TWENTIES HAD HIS OWN TRAINING TRICKS",
+    "normalized_text": "EVERY MAN WHO ENTERED THE TWENTIES HAD HIS OWN TRAINING TRICKS",
+    "duration": 4.65,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0021.wav"
+  },
+  {
+    "sample_id": "1272-141231-0008",
+    "raw_text": "HE WAS IN REVERIE SLIDING ALONG THE BORDERS OF CONSCIOUSNESS",
+    "normalized_text": "HE WAS IN REVERIE SLIDING ALONG THE BORDERS OF CONSCIOUSNESS",
+    "duration": 4.595,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0008.wav"
+  },
+  {
+    "sample_id": "1272-135031-0022",
+    "raw_text": "TRUE AGREED KALIKO",
+    "normalized_text": "TRUE AGREED KALIKO",
+    "duration": 2.695,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-135031-0022.wav"
+  },
+  {
+    "sample_id": "1272-141231-0031",
+    "raw_text": "A WAVE OF DESPAIR ROLLED OUT FROM IROLG BRION SENSED IT AND KNEW THE FIFTH POINT WAS HIS",
+    "normalized_text": "A WAVE OF DESPAIR ROLLED OUT FROM IROLG BRION SENSED IT AND KNEW THE FIFTH POINT WAS HIS",
+    "duration": 7.115,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0031.wav"
+  },
+  {
+    "sample_id": "1272-135031-0023",
+    "raw_text": "KALIKO WENT TO THE BIG GONG AND POUNDED ON IT JUST AS RUGGEDO USED TO DO BUT NO ONE ANSWERED THE SUMMONS",
+    "normalized_text": "KALIKO WENT TO THE BIG GONG AND POUNDED ON IT JUST AS RUGGEDO USED TO DO BUT NO ONE ANSWERED THE SUMMONS",
+    "duration": 7.52,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-135031-0023.wav"
+  },
+  {
+    "sample_id": "1272-135031-0010",
+    "raw_text": "IN FACT THERE IS NOTHING HE CAN DO IN THESE DOMINIONS AS WELL AS OUR NOMES WHOSE NUMBERS ARE SO GREAT THAT IT WORRIES US TO KEEP THEM ALL BUSY",
+    "normalized_text": "IN FACT THERE IS NOTHING HE CAN DO IN THESE DOMINIONS AS WELL AS OUR NOMES WHOSE NUMBERS ARE SO GREAT THAT IT WORRIES US TO KEEP THEM ALL BUSY",
+    "duration": 8.995,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-135031-0010.wav"
+  },
+  {
+    "sample_id": "1272-135031-0015",
+    "raw_text": "THE METAL FOREST IS IN THE GREAT DOMED CAVERN THE LARGEST IN ALL OUR DOMINIONS REPLIED KALIKO",
+    "normalized_text": "THE METAL FOREST IS IN THE GREAT DOMED CAVERN THE LARGEST IN ALL OUR DOMINIONS REPLIED KALIKO",
+    "duration": 7.375,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-135031-0015.wav"
+  },
+  {
+    "sample_id": "1272-128104-0013",
+    "raw_text": "MISTER QUILTER HAS MISSED HIS CHANCE FOR HE HAS FAILED EVEN TO MAKE HIMSELF THE TUPPER OF PAINTING",
+    "normalized_text": "MISTER QUILTER HAS MISSED HIS CHANCE FOR HE HAS FAILED EVEN TO MAKE HIMSELF THE TUPPER OF PAINTING",
+    "duration": 7.1,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-128104-0013.wav"
+  },
+  {
+    "sample_id": "1272-135031-0008",
+    "raw_text": "I HOPE HE DOESN'T WORK TOO HARD SAID SHAGGY",
+    "normalized_text": "I HOPE HE DOESN'T WORK TOO HARD SAID SHAGGY",
+    "duration": 3.67,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-135031-0008.wav"
+  },
+  {
+    "sample_id": "1272-135031-0003",
+    "raw_text": "THE LITTLE GIRL HAD BEEN ASLEEP BUT SHE HEARD THE RAPS AND OPENED THE DOOR",
+    "normalized_text": "THE LITTLE GIRL HAD BEEN ASLEEP BUT SHE HEARD THE RAPS AND OPENED THE DOOR",
+    "duration": 4.755,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-135031-0003.wav"
+  },
+  {
+    "sample_id": "1272-135031-0012",
+    "raw_text": "WHERE IS MY BROTHER NOW",
+    "normalized_text": "WHERE IS MY BROTHER NOW",
+    "duration": 2.04,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-135031-0012.wav"
+  },
+  {
+    "sample_id": "1272-141231-0018",
+    "raw_text": "A RED HAIRED MOUNTAIN OF A MAN WITH AN APPARENTLY INEXHAUSTIBLE STORE OF ENERGY",
+    "normalized_text": "A RED HAIRED MOUNTAIN OF A MAN WITH AN APPARENTLY INEXHAUSTIBLE STORE OF ENERGY",
+    "duration": 6.0,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0018.wav"
+  },
+  {
+    "sample_id": "1272-141231-0016",
+    "raw_text": "TEN SECONDS",
+    "normalized_text": "TEN SECONDS",
+    "duration": 1.85,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0016.wav"
+  },
+  {
+    "sample_id": "1272-128104-0005",
+    "raw_text": "IT IS OBVIOUSLY UNNECESSARY FOR US TO POINT OUT HOW LUMINOUS THESE CRITICISMS ARE HOW DELICATE IN EXPRESSION",
+    "normalized_text": "IT IS OBVIOUSLY UNNECESSARY FOR US TO POINT OUT HOW LUMINOUS THESE CRITICISMS ARE HOW DELICATE IN EXPRESSION",
+    "duration": 9.01,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-128104-0005.wav"
+  },
+  {
+    "sample_id": "1272-135031-0021",
+    "raw_text": "I DO NOT KNOW CONFESSED SHAGGY",
+    "normalized_text": "I DO NOT KNOW CONFESSED SHAGGY",
+    "duration": 2.595,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-135031-0021.wav"
+  },
+  {
+    "sample_id": "1272-141231-0023",
+    "raw_text": "THE STRENGTH THAT ENABLES SOMEONE IN A TRANCE TO HOLD HIS BODY STIFF AND UNSUPPORTED EXCEPT AT TWO POINTS THE HEAD AND HEELS",
+    "normalized_text": "THE STRENGTH THAT ENABLES SOMEONE IN A TRANCE TO HOLD HIS BODY STIFF AND UNSUPPORTED EXCEPT AT TWO POINTS THE HEAD AND HEELS",
+    "duration": 8.66,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0023.wav"
+  },
+  {
+    "sample_id": "1272-128104-0006",
+    "raw_text": "ON THE GENERAL PRINCIPLES OF ART MISTER QUILTER WRITES WITH EQUAL LUCIDITY",
+    "normalized_text": "ON THE GENERAL PRINCIPLES OF ART MISTER QUILTER WRITES WITH EQUAL LUCIDITY",
+    "duration": 5.64,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-128104-0006.wav"
+  },
+  {
+    "sample_id": "1272-141231-0025",
+    "raw_text": "OTHERS HAD DIED BEFORE DURING THE TWENTIES AND DEATH DURING THE LAST ROUND WAS IN SOME WAYS EASIER THAN DEFEAT",
+    "normalized_text": "OTHERS HAD DIED BEFORE DURING THE TWENTIES AND DEATH DURING THE LAST ROUND WAS IN SOME WAYS EASIER THAN DEFEAT",
+    "duration": 8.725,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0025.wav"
+  },
+  {
+    "sample_id": "1272-128104-0014",
+    "raw_text": "BY HARRY QUILTER M A",
+    "normalized_text": "BY HARRY QUILTER M A",
+    "duration": 2.245,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-128104-0014.wav"
+  },
+  {
+    "sample_id": "1272-141231-0022",
+    "raw_text": "THERE APPEARED TO BE AN IMMEDIATE ASSOCIATION WITH THE DEATH TRAUMA AS IF THE TWO WERE INEXTRICABLY LINKED INTO ONE",
+    "normalized_text": "THERE APPEARED TO BE AN IMMEDIATE ASSOCIATION WITH THE DEATH TRAUMA AS IF THE TWO WERE INEXTRICABLY LINKED INTO ONE",
+    "duration": 8.35,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0022.wav"
+  },
+  {
+    "sample_id": "1272-135031-0014",
+    "raw_text": "WHERE IS THAT",
+    "normalized_text": "WHERE IS THAT",
+    "duration": 1.74,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-135031-0014.wav"
+  },
+  {
+    "sample_id": "1272-141231-0014",
+    "raw_text": "HE MUST HAVE DRAWN HIS GUN BECAUSE THE INTRUDER SAID QUICKLY PUT THAT AWAY YOU'RE BEING A FOOL OUT",
+    "normalized_text": "HE MUST HAVE DRAWN HIS GUN BECAUSE THE INTRUDER SAID QUICKLY PUT THAT AWAY YOU'RE BEING A FOOL OUT",
+    "duration": 7.305,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0014.wav"
+  },
+  {
+    "sample_id": "1272-135031-0017",
+    "raw_text": "HOWEVER IF WE LOOK SHARP WE MAY BE ABLE TO DISCOVER ONE OF THESE SECRET WAYS",
+    "normalized_text": "HOWEVER IF WE LOOK SHARP WE MAY BE ABLE TO DISCOVER ONE OF THESE SECRET WAYS",
+    "duration": 6.86,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-135031-0017.wav"
+  },
+  {
+    "sample_id": "1272-135031-0016",
+    "raw_text": "KALIKO HESITATED",
+    "normalized_text": "KALIKO HESITATED",
+    "duration": 2.28,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-135031-0016.wav"
+  },
+  {
+    "sample_id": "1272-128104-0000",
+    "raw_text": "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL",
+    "normalized_text": "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL",
+    "duration": 5.855,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-128104-0000.wav"
+  },
+  {
+    "sample_id": "1272-141231-0028",
+    "raw_text": "IROLG LOOKED AMAZED AT THE SUDDEN FURY OF THE ATTACK THEN SMILED",
+    "normalized_text": "IROLG LOOKED AMAZED AT THE SUDDEN FURY OF THE ATTACK THEN SMILED",
+    "duration": 5.65,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0028.wav"
+  },
+  {
+    "sample_id": "1272-135031-0020",
+    "raw_text": "I DON'T BELIEVE ANN KNEW ANY MAGIC OR SHE'D HAVE WORKED IT BEFORE",
+    "normalized_text": "I DON'T BELIEVE ANN KNEW ANY MAGIC OR SHE'D HAVE WORKED IT BEFORE",
+    "duration": 4.65,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-135031-0020.wav"
+  },
+  {
+    "sample_id": "1272-141231-0012",
+    "raw_text": "I'M HERE BECAUSE THE MATTER IS OF UTMOST IMPORTANCE AND BRANDD IS THE ONE I MUST SEE NOW STAND ASIDE",
+    "normalized_text": "I'M HERE BECAUSE THE MATTER IS OF UTMOST IMPORTANCE AND BRANDD IS THE ONE I MUST SEE NOW STAND ASIDE",
+    "duration": 7.74,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0012.wav"
+  },
+  {
+    "sample_id": "1272-135031-0018",
+    "raw_text": "OH NO I'M QUITE SURE HE DIDN'T",
+    "normalized_text": "OH NO I'M QUITE SURE HE DIDN'T",
+    "duration": 2.4449375,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-135031-0018.wav"
+  },
+  {
+    "sample_id": "1272-141231-0020",
+    "raw_text": "JUST THRUST AND PARRY AND VICTORY TO THE STRONGER",
+    "normalized_text": "JUST THRUST AND PARRY AND VICTORY TO THE STRONGER",
+    "duration": 4.32,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0020.wav"
+  },
+  {
+    "sample_id": "1272-135031-0004",
+    "raw_text": "THE KING HAS FLED IN DISGRACE AND YOUR FRIENDS ARE ASKING FOR YOU",
+    "normalized_text": "THE KING HAS FLED IN DISGRACE AND YOUR FRIENDS ARE ASKING FOR YOU",
+    "duration": 4.225,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-135031-0004.wav"
+  },
+  {
+    "sample_id": "1272-141231-0004",
+    "raw_text": "ONE MINUTE A VOICE SAID AND THE TIME BUZZER SOUNDED",
+    "normalized_text": "ONE MINUTE A VOICE SAID AND THE TIME BUZZER SOUNDED",
+    "duration": 5.09,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0004.wav"
+  },
+  {
+    "sample_id": "1272-141231-0015",
+    "raw_text": "THERE WAS SILENCE THEN AND STILL WONDERING BRION WAS ONCE MORE ASLEEP",
+    "normalized_text": "THERE WAS SILENCE THEN AND STILL WONDERING BRION WAS ONCE MORE ASLEEP",
+    "duration": 5.68,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0015.wav"
+  },
+  {
+    "sample_id": "1272-141231-0007",
+    "raw_text": "ONLY HIS HEART AND LUNGS WORKED ON AT A STRONG MEASURED RATE",
+    "normalized_text": "ONLY HIS HEART AND LUNGS WORKED ON AT A STRONG MEASURED RATE",
+    "duration": 4.735,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0007.wav"
+  },
+  {
+    "sample_id": "1272-141231-0000",
+    "raw_text": "A MAN SAID TO THE UNIVERSE SIR I EXIST",
+    "normalized_text": "A MAN SAID TO THE UNIVERSE SIR I EXIST",
+    "duration": 4.65,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0000.wav"
+  },
+  {
+    "sample_id": "1272-141231-0026",
+    "raw_text": "BREATHING DEEPLY BRION SOFTLY SPOKE THE AUTO HYPNOTIC PHRASES THAT TRIGGERED THE PROCESS",
+    "normalized_text": "BREATHING DEEPLY BRION SOFTLY SPOKE THE AUTO HYPNOTIC PHRASES THAT TRIGGERED THE PROCESS",
+    "duration": 6.635,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0026.wav"
+  },
+  {
+    "sample_id": "1272-135031-0005",
+    "raw_text": "I BEGGED RUGGEDO LONG AGO TO SEND HIM AWAY BUT HE WOULD NOT DO SO",
+    "normalized_text": "I BEGGED RUGGEDO LONG AGO TO SEND HIM AWAY BUT HE WOULD NOT DO SO",
+    "duration": 4.625,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-135031-0005.wav"
+  },
+  {
+    "sample_id": "1272-141231-0019",
+    "raw_text": "THERE COULD BE LITTLE ART IN THIS LAST AND FINAL ROUND OF FENCING",
+    "normalized_text": "THERE COULD BE LITTLE ART IN THIS LAST AND FINAL ROUND OF FENCING",
+    "duration": 4.7,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0019.wav"
+  },
+  {
+    "sample_id": "1272-141231-0030",
+    "raw_text": "BRION SAW SOMETHING CLOSE TO PANIC ON HIS OPPONENT'S FACE WHEN THE MAN FINALLY RECOGNIZED HIS ERROR",
+    "normalized_text": "BRION SAW SOMETHING CLOSE TO PANIC ON HIS OPPONENT'S FACE WHEN THE MAN FINALLY RECOGNIZED HIS ERROR",
+    "duration": 7.13,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0030.wav"
+  },
+  {
+    "sample_id": "1272-128104-0003",
+    "raw_text": "HE HAS GRAVE DOUBTS WHETHER SIR FREDERICK LEIGHTON'S WORK IS REALLY GREEK AFTER ALL AND CAN DISCOVER IN IT BUT LITTLE OF ROCKY ITHACA",
+    "normalized_text": "HE HAS GRAVE DOUBTS WHETHER SIR FREDERICK LEIGHTON'S WORK IS REALLY GREEK AFTER ALL AND CAN DISCOVER IN IT BUT LITTLE OF ROCKY ITHACA",
+    "duration": 9.9,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-128104-0003.wav"
+  },
+  {
+    "sample_id": "1272-135031-0019",
+    "raw_text": "THAT'S FUNNY REMARKED BETSY THOUGHTFULLY",
+    "normalized_text": "THAT'S FUNNY REMARKED BETSY THOUGHTFULLY",
+    "duration": 3.525,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-135031-0019.wav"
+  },
+  {
+    "sample_id": "1272-141231-0006",
+    "raw_text": "THE BUZZER'S WHIRR TRIGGERED HIS MUSCLES INTO COMPLETE RELAXATION",
+    "normalized_text": "THE BUZZER'S WHIRR TRIGGERED HIS MUSCLES INTO COMPLETE RELAXATION",
+    "duration": 4.93,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-141231-0006.wav"
+  },
+  {
+    "sample_id": "1272-128104-0007",
+    "raw_text": "PAINTING HE TELLS US IS OF A DIFFERENT QUALITY TO MATHEMATICS AND FINISH IN ART IS ADDING MORE FACT",
+    "normalized_text": "PAINTING HE TELLS US IS OF A DIFFERENT QUALITY TO MATHEMATICS AND FINISH IN ART IS ADDING MORE FACT",
+    "duration": 9.24,
+    "sample_rate": 16000,
+    "audio_path": "data\\raw\\wavs\\1272-128104-0007.wav"
+  }
+]

@@ -307,24 +307,104 @@ tested at unit-test speed.
 - **English only** — SpeechT5 is trained on English data.
 - **No streaming** — the entire waveform is generated before playback
   begins; latency scales with utterance length.
-- **No quantization** — this is the unoptimized baseline; RTF > 1 on
-  CPU is expected for longer sentences.
+---
+
+## Stage 2 — Fine-Tuning & Domain Adaptation
+
+Stage 2 adds the complete machine learning training and domain adaptation layer on top of the Stage 1 baseline, fine-tuning SpeechT5 on the single-speaker **LJ Speech** dataset.
+
+### Stage 2 Architecture
+
+```mermaid
+flowchart TD
+    A[LJ Speech Dataset] --> B[Audio & Transcript Validation]
+    B --> C[Text Normalization]
+    C --> D[Train / Validation / Test Split\n80% / 10% / 10% Disjoint]
+    D --> E[SpeechT5 Processor]
+    E --> F[Data Collator with Dynamic Padding]
+    G[Speaker Embedding\nCMU Arctic X-Vector] --> H[SpeechT5 Fine-Tuning]
+    F --> H
+    H --> I[Fine-tuned SpeechT5 Checkpoint\ncheckpoints/finetuned/best/]
+    I --> J[HiFi-GAN Vocoder]
+    J --> K[Generated Audio]
+    K --> L[Model Comparison & Evaluation\nWER, CER, RTF, Latency, MOS]
+```
+
+### Key Capabilities in Stage 2
+
+1. **Deterministic & Disjoint Dataset Splitting**:
+   - Computes an $80\%$ Train / $10\%$ Validation / $10\%$ Test partition with fixed seed (`seed=42`).
+   - Strictly verifies $\text{Train} \cap \text{Val} \cap \text{Test} = \emptyset$ to prevent data leakage.
+   - Generates `outputs/reports/dataset_statistics.csv`, `dataset_summary.json`, and `dataset_errors.csv`.
+
+2. **SpeechT5 Conditioning & Dynamic Collator**:
+   - Batches variable-length tokenized text `input_ids` and target log-mel spectrogram `labels`.
+   - Masks padded frames with `-100.0` for loss computation.
+   - Conditions the autoregressive acoustic model with a consistent single-speaker 512-dim x-vector.
+
+3. **Training Engine & Checkpointing**:
+   - Optimizer: `AdamW` with linear warmup and decay.
+   - Gradient accumulation (`effective_batch_size = batch_size * gradient_accumulation_steps`).
+   - Mixed precision (FP16) with automatic CPU fallback.
+   - Saves intermediate checkpoints and maintains `checkpoints/finetuned/best/` selected exclusively by validation loss.
+   - Early stopping triggers after `patience` evaluation intervals without improvement.
+
+4. **Comparative Evaluation & Error Analysis**:
+   - Dual-model inference CLI: `--model baseline` vs `--model finetuned`.
+   - Character Error Rate (CER) and Word Error Rate (WER) via Whisper ASR.
+   - Automated generation of `outputs/reports/model_comparison.csv` and `outputs/reports/human_evaluation_template.csv`.
+   - Detailed linguistic breakdown in `experiments/finetuning/error_analysis.md`.
 
 ---
 
-## Future Work (Stage 2)
+## Stage 2 Commands
 
-1. **ONNX export** — export the acoustic model and vocoder to ONNX for
-   runtime-agnostic deployment.
-2. **INT8 dynamic quantization** — reduce model size and improve CPU
-   throughput.
-3. **Streaming synthesis** — implement chunked mel-spectrogram generation
-   to reduce time-to-first-byte.
-4. **Multi-speaker** — expose speaker selection via the API.
-5. **Custom fine-tuning** — LoRA-based adaptation on domain-specific
-   voice data.
-6. **Docker + Kubernetes** — containerised, horizontally-scalable
-   deployment.
+### 1. Dataset Preparation & Quality Validation
+```bash
+# Ingest LJ Speech, clean transcripts, validate audio, and create 80/10/10 splits:
+python scripts/prepare_dataset.py --config configs/finetune.yaml
+
+# Fast smoke-test (generates synthetic samples offline):
+python scripts/prepare_dataset.py --config configs/finetune.yaml --smoke-test
+```
+
+### 2. Fine-Tuning SpeechT5
+```bash
+# Launch fine-tuning with early stopping and experiment logging:
+python scripts/train.py --config configs/finetune.yaml
+
+# Rapid dry-run (e.g. 5 steps):
+python scripts/train.py --config configs/finetune.yaml --smoke-test --max-steps 5
+```
+
+### 3. Dual-Model Synthesis
+```bash
+# Synthesize using Stage 1 pretrained baseline:
+python scripts/synthesize.py --model baseline --text "Speech synthesis technology has advanced dramatically."
+
+# Synthesize using Stage 2 fine-tuned model:
+python scripts/synthesize.py --model finetuned --text "Speech synthesis technology has advanced dramatically."
+```
+
+### 4. Baseline vs Fine-Tuned Model Comparison
+```bash
+# Evaluate both models on the held-out test split (latency, RTF, WER, CER):
+python scripts/compare_models.py --config configs/finetune.yaml
+```
+
+### 5. Running the Test Suite
+```bash
+pytest tests/ -v
+```
+
+---
+
+## Stage 2 Limitations
+
+- **Single Speaker Only**: LJ Speech is a single-speaker English corpus.
+- **Dependency on Quality**: Fine-tuning fidelity directly reflects audio recording conditions.
+- **ASR Metric Scope**: WER and CER quantify linguistic intelligibility, not subjective warmth or naturalness.
+- **No Latency Optimization in Stage 2**: ONNX, INT8 quantization, pruning, and streaming are reserved for Stage 3.
 
 ---
 
@@ -335,36 +415,50 @@ tts-baseline/
 ├── README.md
 ├── requirements.txt
 ├── configs/
-│   └── config.yaml           # All tunable parameters
+│   ├── config.yaml             # Stage 1 baseline configuration
+│   └── finetune.yaml           # Stage 2 fine-tuning hyperparameters & paths
 ├── src/
-│   ├── config.py             # YAML config loader
-│   ├── preprocessing.py      # Text normalization
-│   ├── model.py              # SpeechT5 + HiFi-GAN wrapper
-│   ├── synthesizer.py        # End-to-end pipeline
-│   ├── audio_utils.py        # I/O, validation, normalization
-│   ├── metrics.py            # Statistics & WER
-│   ├── visualization.py      # Waveform & spectrogram plots
-│   └── utils.py              # Logging, seeding, file helpers
+│   ├── config.py               # YAML config loader
+│   ├── preprocessing.py        # Text normalization
+│   ├── model.py                # SpeechT5 wrapper (baseline & finetuned checkpoint loading)
+│   ├── synthesizer.py          # End-to-end inference pipeline
+│   ├── dataset.py              # Dataset ingestion, audio validation & deterministic splits
+│   ├── collator.py             # SpeechT5 dynamic batch collator & speaker conditioning
+│   ├── trainer.py              # Training loop, optimizer, validation & early stopping
+│   ├── evaluation.py           # CER computation & human evaluation template generator
+│   ├── audio_utils.py          # Audio I/O and validation
+│   ├── metrics.py              # RTF, latency and WER statistics
+│   ├── visualization.py        # Spectrogram and waveform plotting
+│   └── utils.py                # Logging and random seeding
 ├── scripts/
-│   ├── synthesize.py         # CLI — single or batch synthesis
-│   ├── benchmark.py          # Benchmark runner + CSV report
-│   └── evaluate.py           # Evaluation report + optional WER
-├── api/
-│   └── main.py               # FastAPI application
-├── tests/
-│   ├── test_preprocessing.py
-│   ├── test_audio.py
-│   └── test_synthesis.py
-├── data/
-│   └── input/
-│       └── test_sentences.txt
+│   ├── prepare_dataset.py      # Ingest, validate & split dataset
+│   ├── train.py                # Launch fine-tuning training loop
+│   ├── synthesize.py           # CLI single/batch synthesis (--model baseline|finetuned)
+│   ├── compare_models.py       # Comparative evaluation on held-out test set
+│   ├── benchmark.py            # Latency benchmark runner
+│   └── evaluate.py             # ASR-based evaluation
+├── checkpoints/
+│   ├── baseline/               # Reference baseline model metadata
+│   └── finetuned/              # Fine-tuned step checkpoints and best/ directory
 ├── experiments/
-│   └── baseline/
-│       └── experiment.md
-└── outputs/
-    ├── audio/
-    ├── spectrograms/
-    └── reports/
+│   ├── baseline/               # Baseline experiment records
+│   └── finetuning/             # Fine-tuning logs and error_analysis.md
+├── data/
+│   ├── input/                  # Test sentences
+│   ├── raw/                    # Raw audio recordings & metadata
+│   └── splits/                 # train.json, val.json, test.json (disjoint)
+├── outputs/
+│   ├── audio/                  # Generated WAV files
+│   ├── spectrograms/           # Generated visual plots
+│   └── reports/                # CSV/JSON dataset, training, and comparison metrics
+└── tests/
+    ├── test_preprocessing.py
+    ├── test_audio.py
+    ├── test_synthesis.py
+    ├── test_dataset.py
+    ├── test_collator.py
+    ├── test_trainer_config.py
+    └── test_evaluation.py
 ```
 
 ---
@@ -372,3 +466,4 @@ tts-baseline/
 ## License
 
 MIT
+

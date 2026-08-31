@@ -19,6 +19,7 @@ Optional arguments::
 """
 
 import argparse
+import logging
 import sys
 from pathlib import Path
 
@@ -30,6 +31,8 @@ from src.model import TTSModel
 from src.synthesizer import Synthesizer
 from src.utils import load_text_file, setup_logging
 from src.visualization import save_visualizations
+
+logger = logging.getLogger(__name__)
 
 
 def _print_metadata(meta: dict) -> None:
@@ -57,6 +60,19 @@ def parse_args() -> argparse.Namespace:
         "--input_file",
         type=str,
         help="Path to a text file with one sentence per line.",
+    )
+    parser.add_argument(
+        "--model",
+        type=str,
+        default="baseline",
+        choices=["baseline", "finetuned"],
+        help="Choose between baseline (pretrained) or finetuned SpeechT5 model.",
+    )
+    parser.add_argument(
+        "--checkpoint",
+        type=str,
+        default=None,
+        help="Custom checkpoint directory for finetuned model (default: checkpoints/finetuned/best).",
     )
     parser.add_argument(
         "--config",
@@ -90,7 +106,20 @@ def main() -> None:
 
     config = load_config(args.config)
 
-    model = TTSModel(config)
+    # Resolve model checkpoint
+    checkpoint_path = None
+    if args.model == "finetuned":
+        checkpoint_path = args.checkpoint or "checkpoints/finetuned/best"
+        if not Path(checkpoint_path).exists():
+            raise FileNotFoundError(
+                f"Finetuned checkpoint directory not found at: {checkpoint_path}\n"
+                "Please train the model first with: python scripts/train.py --config configs/finetune.yaml"
+            )
+        logger.info("Loading fine-tuned model from %s", checkpoint_path)
+    else:
+        logger.info("Loading baseline pretrained model (%s)", config.model.name)
+
+    model = TTSModel(config, checkpoint_path=checkpoint_path)
     model.load()
     synth = Synthesizer(model, config)
 
